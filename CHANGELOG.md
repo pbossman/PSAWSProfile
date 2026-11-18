@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.1] - 2026-11-18
+
+### Added
+- Comprehensive README with examples and feature overview
+- Quick start guide for all profile types
+- Cmdlet reference table
+
 ## [Unreleased]
 
 ## [0.6.0] - 2026-11-17
@@ -29,3 +36,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Section removal pattern now properly matches entire sections including header and all properties.
 - ARN validation regex patterns for assumed role and credential process profiles.
+
