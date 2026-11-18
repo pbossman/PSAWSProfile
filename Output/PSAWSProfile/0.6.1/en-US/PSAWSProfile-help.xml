@@ -1,0 +1,2136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-AwsProfileNames</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AwsProfileNames</command:noun>
+      <maml:description>
+        <maml:para>Lists AWS profile names from the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Returns AWS profile names, with optional filtering by profile name or SSO session. When requested, it can also return the associated SSO session per profile.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AwsProfileNames</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>Filters the returned profiles by name. Wildcards are supported, and plain text is treated as a contains-style match.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="sso-session">
+          <maml:name>SsoSession</maml:name>
+          <maml:description>
+            <maml:para>Filters the returned profiles to a specific AWS SSO session name.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ShowSsoSession</maml:name>
+          <maml:description>
+            <maml:para>Returns profile objects that include the associated SSO session name instead of only profile names.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ShowSsoSession</maml:name>
+        <maml:description>
+          <maml:para>Returns profile objects that include the associated SSO session name instead of only profile names.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>Filters the returned profiles by name. Wildcards are supported, and plain text is treated as a contains-style match.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="sso-session">
+        <maml:name>SsoSession</maml:name>
+        <maml:description>
+          <maml:para>Filters the returned profiles to a specific AWS SSO session name.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-AwsProfileNames -SsoSession 'example-sso'</dev:code>
+        <dev:remarks>
+          <maml:para>Returns profile names associated with the specified SSO session.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-AWSSSOAccessToken</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AWSSSOAccessToken</command:noun>
+      <maml:description>
+        <maml:para>Retrieves an active AWS SSO access token from the local cache.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Finds an unexpired AWS SSO access token in the cache and stores it in the module session state. Use PassThru to return the token.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AWSSSOAccessToken</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>Reserved for compatibility. The AWS config file path is not currently used.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>CachePath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns the access token instead of only storing it in the module session state.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>Reserved for compatibility. The AWS config file path is not currently used.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>CachePath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Returns the access token instead of only storing it in the module session state.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-AWSSSOAccessToken</dev:code>
+        <dev:remarks>
+          <maml:para>Stores an active cached AWS SSO access token in the module session state.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-AwsSsoSessionNames</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>AwsSsoSessionNames</command:noun>
+      <maml:description>
+        <maml:para>Lists AWS SSO session names from the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Reads parsed AWS config data and returns the names of sections declared as `sso-session`. When requested, it filters the result to only sessions backed by an unexpired local AWS SSO cache token.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-AwsSsoSessionNames</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>CachePath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Active</maml:name>
+          <maml:description>
+            <maml:para>Returns only configured sessions whose `sso_start_url` is backed by an unexpired AWS SSO cache token.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Active</maml:name>
+        <maml:description>
+          <maml:para>Returns only configured sessions whose `sso_start_url` is backed by an unexpired AWS SSO cache token.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>CachePath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-AwsSsoSessionNames</dev:code>
+        <dev:remarks>
+          <maml:para>Returns every configured AWS SSO session name.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-AwsSsoSessionNames -Active</dev:code>
+        <dev:remarks>
+          <maml:para>Returns configured SSO sessions that currently have a valid cached token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-AwsAssumedRoleProfile</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>AwsAssumedRoleProfile</command:noun>
+      <maml:description>
+        <maml:para>Creates a new AWS assumed role profile in the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Adds a new profile section to the AWS shared config file configured to assume an IAM role. The profile references a source profile and specifies the role ARN to assume.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-AwsAssumedRoleProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the new profile to create. If not specified, defaults to '{AccountId}-{RoleName}' extracted from the role ARN.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>SourceProfile</maml:name>
+          <maml:description>
+            <maml:para>The name of the profile to use as the source for assuming the role.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>RoleArn</maml:name>
+          <maml:description>
+            <maml:para>The ARN of the IAM role to assume. Must match AWS ARN format: arn:aws:iam::{account-id}:role/{role-name}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+          <maml:name>Region</maml:name>
+          <maml:description>
+            <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Us-east-1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+          <maml:name>Output</maml:name>
+          <maml:description>
+            <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Json</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>The name of the new profile to create. If not specified, defaults to '{AccountId}-{RoleName}' extracted from the role ARN.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>SourceProfile</maml:name>
+        <maml:description>
+          <maml:para>The name of the profile to use as the source for assuming the role.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>RoleArn</maml:name>
+        <maml:description>
+          <maml:para>The ARN of the IAM role to assume. Must match AWS ARN format: arn:aws:iam::{account-id}:role/{role-name}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>Region</maml:name>
+        <maml:description>
+          <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Us-east-1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+        <maml:name>Output</maml:name>
+        <maml:description>
+          <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Json</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Force</maml:name>
+        <maml:description>
+          <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>New-AwsAssumedRoleProfile -ProfileName 'prod-role' -SourceProfile 'prod-automation' -RoleArn 'arn:aws:iam::123456789012:role/example-role'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new assumed role profile named 'prod-role'.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>New-AwsAssumedRoleProfile -SourceProfile 'prod-automation' -RoleArn 'arn:aws:iam::123456789012:role/example-role'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new assumed role profile with auto-generated name from the ARN.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-AwsCredentialProcessProfile</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>AwsCredentialProcessProfile</command:noun>
+      <maml:description>
+        <maml:para>Creates a new AWS credential process profile in the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Adds a new profile section to the AWS shared config file configured to use a credential process. The credential process can be provided as a complete command string or constructed from individual components.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-AwsCredentialProcessProfile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the new profile to create.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CredentialProcess</maml:name>
+          <maml:description>
+            <maml:para>The full command line to execute that returns AWS credentials. Use this when you have the complete command ready.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Region</maml:name>
+          <maml:description>
+            <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Us-east-1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Output</maml:name>
+          <maml:description>
+            <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Json</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-AwsCredentialProcessProfile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the new profile to create.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProcessPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the credential process executable (e.g., C:\aws_roles_anywhere\aws_signing_helper.exe).</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CertificatePath</maml:name>
+          <maml:description>
+            <maml:para>The path to the certificate file for credential process authentication.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PrivateKeyPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the private key file for credential process authentication.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RoleArn</maml:name>
+          <maml:description>
+            <maml:para>The ARN of the IAM role for the credential process. Must match format: arn:aws:iam::{account-id}:role/{role-name}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TrustAnchorArn</maml:name>
+          <maml:description>
+            <maml:para>The ARN of the trust anchor for AWS Roles Anywhere. Must match format: arn:aws:rolesanywhere:{region}:{account-id}:trust-anchor/{id}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProfileArn</maml:name>
+          <maml:description>
+            <maml:para>The ARN of the profile for AWS Roles Anywhere. Must match format: arn:aws:rolesanywhere:{region}:{account-id}:profile/{id}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Region</maml:name>
+          <maml:description>
+            <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Us-east-1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Output</maml:name>
+          <maml:description>
+            <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Json</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>The name of the new profile to create.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CredentialProcess</maml:name>
+        <maml:description>
+          <maml:para>The full command line to execute that returns AWS credentials. Use this when you have the complete command ready.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ProcessPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the credential process executable (e.g., C:\aws_roles_anywhere\aws_signing_helper.exe).</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CertificatePath</maml:name>
+        <maml:description>
+          <maml:para>The path to the certificate file for credential process authentication.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PrivateKeyPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the private key file for credential process authentication.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RoleArn</maml:name>
+        <maml:description>
+          <maml:para>The ARN of the IAM role for the credential process. Must match format: arn:aws:iam::{account-id}:role/{role-name}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TrustAnchorArn</maml:name>
+        <maml:description>
+          <maml:para>The ARN of the trust anchor for AWS Roles Anywhere. Must match format: arn:aws:rolesanywhere:{region}:{account-id}:trust-anchor/{id}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ProfileArn</maml:name>
+        <maml:description>
+          <maml:para>The ARN of the profile for AWS Roles Anywhere. Must match format: arn:aws:rolesanywhere:{region}:{account-id}:profile/{id}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Region</maml:name>
+        <maml:description>
+          <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Us-east-1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Output</maml:name>
+        <maml:description>
+          <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Json</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Force</maml:name>
+        <maml:description>
+          <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>New-AwsCredentialProcessProfile -ProfileName 'example-automation' -CredentialProcess 'C:\aws_roles_anywhere\aws_signing_helper.exe credential-process --certificate C:\certs\cert.cer --private-key C:\certs\key.key --role-arn arn:aws:iam::123456789012:role/ra-network --trust-anchor-arn arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/abc123 --profile-arn arn:aws:rolesanywhere:us-east-1:123456789012:profile/xyz789'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new credential process profile with a complete command string.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>New-AwsCredentialProcessProfile -ProfileName 'example-automation' -ProcessPath 'C:\aws_roles_anywhere\aws_signing_helper.exe' -CertificatePath 'C:\certs\cert.cer' -PrivateKeyPath 'C:\certs\key.key' -RoleArn 'arn:aws:iam::123456789012:role/ra-network' -TrustAnchorArn 'arn:aws:rolesanywhere:us-east-1:123456789012:trust-anchor/abc123' -ProfileArn 'arn:aws:rolesanywhere:us-east-1:123456789012:profile/xyz789'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a credential process profile by specifying individual components.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-AwsSsoProfile</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>AwsSsoProfile</command:noun>
+      <maml:description>
+        <maml:para>Creates a new AWS SSO profile in the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Adds a new profile section to the AWS shared config file configured to use AWS SSO for authentication. The profile references an existing SSO session and specifies the target AWS account and IAM role. If no profile name is specified, defaults to '{AccountId}-{RoleName}'.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-AwsSsoProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the new profile to create. If not specified, defaults to '{AccountId}-{RoleName}'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="sso-session">
+          <maml:name>SsoSession</maml:name>
+          <maml:description>
+            <maml:para>The name of the SSO session to use for this profile. Must reference an existing sso-session section in the config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>The friendly name of the AWS account. Used to locate the account ID via AWS SSO.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RoleName</maml:name>
+          <maml:description>
+            <maml:para>The IAM role name within the specified account to associate with this profile.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Region</maml:name>
+          <maml:description>
+            <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Us-east-1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Output</maml:name>
+          <maml:description>
+            <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Json</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-AwsSsoProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the new profile to create. If not specified, defaults to '{AccountId}-{RoleName}'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="sso-session">
+          <maml:name>SsoSession</maml:name>
+          <maml:description>
+            <maml:para>The name of the SSO session to use for this profile. Must reference an existing sso-session section in the config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AccountId</maml:name>
+          <maml:description>
+            <maml:para>The AWS account ID directly. Used as an alternative to AccountName.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RoleName</maml:name>
+          <maml:description>
+            <maml:para>The IAM role name within the specified account to associate with this profile.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Region</maml:name>
+          <maml:description>
+            <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Us-east-1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Output</maml:name>
+          <maml:description>
+            <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Json</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>The name of the new profile to create. If not specified, defaults to '{AccountId}-{RoleName}'.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="sso-session">
+        <maml:name>SsoSession</maml:name>
+        <maml:description>
+          <maml:para>The name of the SSO session to use for this profile. Must reference an existing sso-session section in the config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AccountName</maml:name>
+        <maml:description>
+          <maml:para>The friendly name of the AWS account. Used to locate the account ID via AWS SSO.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AccountId</maml:name>
+        <maml:description>
+          <maml:para>The AWS account ID directly. Used as an alternative to AccountName.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RoleName</maml:name>
+        <maml:description>
+          <maml:para>The IAM role name within the specified account to associate with this profile.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Region</maml:name>
+        <maml:description>
+          <maml:para>The AWS region for this profile. Defaults to 'us-east-1' if not specified.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Us-east-1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Output</maml:name>
+        <maml:description>
+          <maml:para>The output format for AWS CLI commands. Defaults to 'json'.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Json</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Force</maml:name>
+        <maml:description>
+          <maml:para>If specified, replaces an existing profile with the same name. Without this flag, an error is thrown if the profile already exists.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>New-AwsSsoProfile -SsoSession 'my-sso' -AccountName 'Production' -RoleName 'Administrator' -Region 'us-west-2'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new profile with auto-generated name from the account ID and role name.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>New-AwsSsoProfile -ProfileName 'prod-admin' -SsoSession 'my-sso' -AccountName 'Production' -RoleName 'Administrator'</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new profile named 'prod-admin' configured to use the 'my-sso' session for the Production account's Administrator role.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>New-AwsSsoProfile -ProfileName 'dev' -SsoSession 'my-sso' -AccountId '123456789012' -RoleName 'Developer' -Force</dev:code>
+        <dev:remarks>
+          <maml:para>Creates or replaces a profile using the account ID directly.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-AwsSsoProfile</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>AwsSsoProfile</command:noun>
+      <maml:description>
+        <maml:para>Removes an AWS SSO profile from the shared config file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Deletes a profile section from the AWS shared config file by name. This removes all configuration for that profile.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-AwsSsoProfile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The name of the profile to remove.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>The name of the profile to remove.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-AwsSsoProfile -ProfileName 'prod-admin'</dev:code>
+        <dev:remarks>
+          <maml:para>Removes the 'prod-admin' profile from the AWS config file.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Remove-AwsSsoProfile -ProfileName 'dev' -WhatIf</dev:code>
+        <dev:remarks>
+          <maml:para>Preview the removal without making changes.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-AwsSsoDefaultProfile</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>AwsSsoDefaultProfile</command:noun>
+      <maml:description>
+        <maml:para>Sets the current AWS profile after validating its SSO session.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Validates that the target profile exists, is backed by an AWS SSO session, and that the session currently has an active cached token before setting `AWS_PROFILE`.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-AwsSsoDefaultProfile</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Profile">
+          <maml:name>ProfileName</maml:name>
+          <maml:description>
+            <maml:para>The exact AWS profile name to set as the current session profile.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CachePath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-AwsSsoDefaultProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Account">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>$Script:AccountList = Get-SSOAccountList -AccessToken $script:AccessToken |     Where-Object { $_.accountName -like "$WordToComplete*" } $script:AccountList |     Select-Object -ExpandProperty AccountName -Unique |     Sort-Object return $CompletionResults</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConfigPath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS shared config file.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CachePath</maml:name>
+          <maml:description>
+            <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+          <maml:name>ProgressAction</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+          <dev:type>
+            <maml:name>ActionPreference</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Profile">
+        <maml:name>ProfileName</maml:name>
+        <maml:description>
+          <maml:para>The exact AWS profile name to set as the current session profile.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Account">
+        <maml:name>AccountName</maml:name>
+        <maml:description>
+          <maml:para>$Script:AccountList = Get-SSOAccountList -AccessToken $script:AccessToken |     Where-Object { $_.accountName -like "$WordToComplete*" } $script:AccountList |     Select-Object -ExpandProperty AccountName -Unique |     Sort-Object return $CompletionResults</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ConfigPath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS shared config file.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\config')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CachePath</maml:name>
+        <maml:description>
+          <maml:para>The path to the AWS CLI SSO cache directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Join-Path $HOME '.aws\sso\cache')</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="proga">
+        <maml:name>ProgressAction</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ProgressAction Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Set-AwsSsoDefaultProfile -ProfileName 'example-nonprod-admin'</dev:code>
+        <dev:remarks>
+          <maml:para>Sets `AWS_PROFILE` after confirming the profile's SSO session has a valid cache token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>

@@ -1,0 +1,12 @@
+TOPIC
+    PSAWSProfile
+
+SHORT DESCRIPTION
+    AWS SSO profile and cache helpers for local PowerShell sessions.
+
+LONG DESCRIPTION
+    PSAWSProfile provides commands for inspecting AWS CLI profiles and SSO
+    sessions, retrieving cached SSO access tokens, and setting the active
+    AWS_PROFILE after validating the associated SSO session.
+
+    Public command names are preserved independently of the module name.
